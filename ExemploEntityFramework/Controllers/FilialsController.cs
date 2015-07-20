@@ -13,12 +13,13 @@ namespace ExemploEntityFramework.Controllers
 {
     public class FilialsController : Controller
     {
-        private Contexto db = new Contexto();
+        private Escopo escopo = new Escopo();
 
         // GET: Filials
         public ActionResult Index()
         {
-            return View(db.Filials.ToList());
+            var repositorio = escopo.ObterRepositorio<Filial>();
+            return View(repositorio.Set().ToList());
         }
 
         // GET: Filials/Details/5
@@ -28,7 +29,8 @@ namespace ExemploEntityFramework.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Filial filial = db.Filials.Find(id);
+            var repositorio = escopo.ObterRepositorio<Filial>();
+            Filial filial = repositorio.Set().Find(id);
             if (filial == null)
             {
                 return HttpNotFound();
@@ -51,8 +53,9 @@ namespace ExemploEntityFramework.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Filials.Add(filial);
-                db.SaveChanges();
+                var repositorio = escopo.ObterRepositorio<Filial>();
+                repositorio.Set().Add(filial);
+                escopo.Finalizar();
                 return RedirectToAction("Index");
             }
 
@@ -66,7 +69,8 @@ namespace ExemploEntityFramework.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Filial filial = db.Filials.Find(id);
+            var repositorio = escopo.ObterRepositorio<Filial>();
+            Filial filial = repositorio.Set().Find(id);
             if (filial == null)
             {
                 return HttpNotFound();
@@ -83,8 +87,9 @@ namespace ExemploEntityFramework.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(filial).State = EntityState.Modified;
-                db.SaveChanges();
+                var repositorio = escopo.ObterRepositorio<Filial>();
+                repositorio.MarcaAlterado(filial);
+                escopo.Finalizar();
                 return RedirectToAction("Index");
             }
             return View(filial);
@@ -97,7 +102,8 @@ namespace ExemploEntityFramework.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Filial filial = db.Filials.Find(id);
+            var repositorio = escopo.ObterRepositorio<Filial>();
+            Filial filial = repositorio.Set().Find(id);
             if (filial == null)
             {
                 return HttpNotFound();
@@ -110,9 +116,10 @@ namespace ExemploEntityFramework.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Filial filial = db.Filials.Find(id);
-            db.Filials.Remove(filial);
-            db.SaveChanges();
+            var repositorio = escopo.ObterRepositorio<Filial>();
+            Filial filial = repositorio.Set().Find(id);
+            repositorio.Set().Remove(filial);
+            escopo.Finalizar();
             return RedirectToAction("Index");
         }
 
@@ -120,7 +127,8 @@ namespace ExemploEntityFramework.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                var repositorio = escopo.ObterRepositorio<Filial>();
+                escopo.Dispose();
             }
             base.Dispose(disposing);
         }

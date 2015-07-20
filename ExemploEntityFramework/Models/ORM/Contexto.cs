@@ -38,9 +38,6 @@ namespace ExemploEntityFramework.Models.ORM
             modelBuilder.Configurations.Add(new NopMapeamento());
             modelBuilder.Configurations.Add(new PerfilNopMapeamento());
             modelBuilder.Configurations.Add(new FilialMapeamento());
-        }
-
-        public System.Data.Entity.DbSet<ExemploEntityFramework.Models.Filial> Filials { get; set; }
-        
+        }        
     }
 }
