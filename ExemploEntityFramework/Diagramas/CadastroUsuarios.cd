@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ExemploEntityFramework.Models.Perfil">
+    <Position X="2.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Perfil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExemploEntityFramework.Models.Usuario">
+    <Position X="6" Y="1" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAQAQAAAAAAAAAAEAAAAAAAMAAAA=</HashCode>
+      <FileName>Models\Usuario.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Perfil" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
