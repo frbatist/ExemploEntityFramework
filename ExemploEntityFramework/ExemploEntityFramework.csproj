@@ -127,6 +127,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PerfilsController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
+    <Compile Include="ExemplosDesign\Entidades\Cliente.cs" />
+    <Compile Include="ExemplosDesign\Entidades\ItemVenda.cs" />
+    <Compile Include="ExemplosDesign\Entidades\Venda.cs" />
+    <Compile Include="ExemplosDesign\Enumeradores\FormaPagamento.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
