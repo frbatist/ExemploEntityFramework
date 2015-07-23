@@ -131,6 +131,11 @@
     <Compile Include="ExemplosDesign\Entidades\ItemVenda.cs" />
     <Compile Include="ExemplosDesign\Entidades\Venda.cs" />
     <Compile Include="ExemplosDesign\Enumeradores\FormaPagamento.cs" />
+    <Compile Include="ExemplosDesign\Fabricas\Vendas\FormaPagamentoFabrica.cs" />
+    <Compile Include="ExemplosDesign\Interfaces\IFormaPagamento.cs" />
+    <Compile Include="ExemplosDesign\Servicos\FormaPagamentoCartao.cs" />
+    <Compile Include="ExemplosDesign\Servicos\FormaPagamentoCheque.cs" />
+    <Compile Include="ExemplosDesign\Servicos\FormaPagamentoDinheiro.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

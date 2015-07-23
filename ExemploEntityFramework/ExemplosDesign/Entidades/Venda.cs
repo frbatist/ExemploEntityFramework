@@ -14,35 +14,8 @@ namespace ExemploEntityFramework.ExemplosDesign
 
         public void Processa()
         {
-            switch (this.FormaPagamento)
-            {
-                case FormaPagamento.Dinheiro:
-                    PagamentoDinheiro();
-                    break;
-                case FormaPagamento.Cartao:
-                    PagamentoCartao();
-                    break;
-                case FormaPagamento.Cheque:
-                    PagamentoCheque();
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        private void PagamentoCheque()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void PagamentoCartao()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void PagamentoDinheiro()
-        {
-            throw new NotImplementedException();
+            var processa = FormaPagamentoFabrica.GetFormaPagamento(this.FormaPagamento);
+            processa.ProcessaPagamento(this);
         }
     }
 }
